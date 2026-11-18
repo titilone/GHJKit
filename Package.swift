@@ -22,8 +22,8 @@ let package = Package(
         .target(
             name: "GHJKit",
             dependencies: [
-                .product(name: "SnapKit", package: "SnapKit")
-            ]
+                .product(name: "SnapKit", package: "SnapKit"),
+            ],
             resources: [
                 .process("Resources")
             ],
