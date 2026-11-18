@@ -10,4 +10,8 @@ public enum GHJKit {
     /// `Bundle.module` 由 SPM 自动生成且为 internal，外部 App 无法直接访问，
     /// 因此通过该属性对外暴露。
     public static var resourceBundle: Bundle { .module }
+
+    public static func image(named: String) -> UIImage? {
+        resourceBundle.image(named: named)
+    }
 }
