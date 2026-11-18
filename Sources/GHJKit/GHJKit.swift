@@ -10,8 +10,17 @@ public enum GHJKit {
     /// `Bundle.module` 由 SPM 自动生成且为 internal，外部 App 无法直接访问，
     /// 因此通过该属性对外暴露。
     public static var resourceBundle: Bundle { .module }
+}
 
-    public static func image(named: String) -> UIImage? {
-        resourceBundle.image(named: named)
+#if canImport(UIKit)
+import UIKit
+
+public extension GHJKit {
+    /// 从 GHJKit 资源 Bundle 加载图片
+    ///
+    /// - Note: PNG 可省略扩展名；JPEG/WebP 等其他格式需写全名，如 `"bat.jpeg"`
+    static func image(named name: String) -> UIImage? {
+        UIImage(named: name, in: resourceBundle, compatibleWith: nil)
     }
 }
+#endif
