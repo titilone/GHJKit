@@ -22,7 +22,7 @@ public class GHJLog {
     /// 打印 / 写入一条日志（带时间戳）
     private static func printTime(_ message: String, logLevel: LogLevel = .normal) {
         let timestamp = logDateFormatter.string(from: Date())
-        let fullLine = "\(timestamp) : \(message)\n"
+        let fullLine = "[GHJKit][\(timestamp)] \(message)\n"
         Swift.print(fullLine, terminator: "")   // 显式引用 Swift 全局 print，避免和本类静态方法 print 重名遮蔽
         writeToFileIfEnabled(fullLine)   // 开启文件日志时双写
     }
